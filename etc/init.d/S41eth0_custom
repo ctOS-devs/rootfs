@@ -1,0 +1,14 @@
+#!/bin/sh
+
+case "$1" in
+    start)
+        echo "Starting my_script"
+        ifconfig eth0 up > /dev/null 2>&1
+        udhcpc -i eth0 > /dev/null 2>&1 &
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+exit 0
